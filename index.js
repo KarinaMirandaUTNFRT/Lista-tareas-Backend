@@ -6,8 +6,9 @@ import { fileURLToPath } from 'url';
 const app = express()
 const PORT = 3001
 const __dirname = dirname (fileURLToPath(import.meta.url))
+console.log(__dirname + '/public')
 
-
+app.use(express.static(__dirname + '/public'))
 
 app.use(cors())
 app.use(express.json())

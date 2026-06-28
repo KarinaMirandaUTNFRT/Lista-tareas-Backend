@@ -1,8 +1,8 @@
 import mongoose, {Schema} from "mongoose";
-const servicioSchema = new Schema(
+const tareaSchema = new Schema(
 {
-    //propiedadd del objeto servicio
-    nombreServicio:{
+    //propiedadd del objeto tarea
+    nombreTarea:{
 type: String, 
 required: true,
 unique: true,
@@ -38,5 +38,5 @@ trim: true,
 }
 
 );
-const Servicio = mongoose.model('servicio', servicioSchema)
-export default Servicio
+const Tarea = mongoose.model('tarea', tareaSchema)
+export default Tarea

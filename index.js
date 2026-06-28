@@ -1,8 +1,13 @@
 import express from 'express'
 import cors from 'cors'
+import {dirname} from'path';
+import { fileURLToPath } from 'url';
 
 const app = express()
 const PORT = 3001
+const __dirname = dirname (fileURLToPath(import.meta.url))
+
+
 
 app.use(cors())
 app.use(express.json())
@@ -17,4 +22,5 @@ res.json (
     saludo:"Bienvenido a nuestro backend",
 }
 )
+
 });

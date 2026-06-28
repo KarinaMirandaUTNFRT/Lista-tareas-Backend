@@ -1,26 +1,24 @@
 {
-  "name": "backend-tareas",
+  "name": "Backend-Tareas",
   "version": "1.0.0",
-  "description": "backend de tareas",
+  "description": "",
   "main": "index.js",
+  
   "scripts": {
     "start": "node index",
     "dev": "node --watch index"
   },
-  "keywords": [],
-  "author": "Karina Miranda",
+  "keywords": [ ],
+  "author": "Karina Del Valle Miranda",
   "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.5.2",
-      "onFail": "download"
-    }
-  },
-  "type": "module",
-  "dependencies": {
+  "packageManager":"pnpm@11.5.1",
+    "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "mongoose": "^9.6.3",
     "morgan": "^1.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

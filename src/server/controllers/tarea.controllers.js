@@ -1,106 +1,106 @@
-import Servicio from "../models/Servicios.js";
+import Tarea from "../models/Tareas.js";
 export const prueba = (req, res) => {
   res.json("hasta luego ultima prueba");
 };
-export const obtenerServicioId = async (req, res) => {
+export const obtenerTareaId = async (req, res) => {
   try {
     console.log(req.params.id);
-    const servicioBuscado = await Servicio.findById(req.params.id);
-        if (!servicioBuscado) {
+    const tareaBuscado = await Tarea.findById(req.params.id);
+        if (!tareaBuscado) {
       return res
         .status(404)
-        .json({ mensaje: "no se encontro el servicio por id" });
+        .json({ mensaje: "no se encontro el tarea por id" });
     }
-    res.status(200).json(servicioBuscado);
+    res.status(200).json(tareaBuscado);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "ocurrio un error al buscar un servicio por id" });
+    res.status(500).json({ mensaje: "ocurrio un error al buscar un tarea por id" });
   }
 };
-export const listarServicios = async (req, res) => {
+export const listarTareas = async (req, res) => {
   try {
-    const servicios = await Servicio.find();
-    res.status(200).json(servicios);
+    const tareas = await Tarea.find();
+    res.status(200).json(tareas);
   } catch (error) {
     console.error(error);
     res
       .status(500)
-      .json({ mensaje: "ocurrio un error al listar los servicios" });
+      .json({ mensaje: "ocurrio un error al listar los tareas" });
   }
 };
-export const crearServicio = async (req, res) => {
+export const crearTarea = async (req, res) => {
   try {
-    const nuevoServicio = new Servicio(req.body);
-    await nuevoServicio.save();
+    const nuevoTarea = new Tarea(req.body);
+    await nuevoTarea.save();
     res
       .status(201)
-      .json({ mensaje: "El servicio fue creado con éxito", nuevoServicio });
+      .json({ mensaje: "El tarea fue creado con éxito", nuevoTarea });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrió un error al crear el servicio" });
+    res.status(500).json({ mensaje: "Ocurrió un error al crear el tarea" });
   }
 };
-export const editarServicio = async (req, res) => {
+export const editarTarea = async (req, res) => {
   try {
     // 1. Buscamos por el ID que viene en la URL y le pasamos los datos nuevos del req.body
     // { new: true } sirve para que MongoDB nos devuelva el documento YA modificado
-    const servicioActualizado = await Servicio.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const tareaActualizado = await Tarea.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
     // 2. Si el ID no existía en la base de datos, avisamos
-    if (!servicioActualizado) {
-      return res.status(404).json({ mensaje: "No se encontró el servicio para editar" });
+    if (!tareaActualizado) {
+      return res.status(404).json({ mensaje: "No se encontró el tarea para editar" });
     }
 
     // 3. Si todo salió bien, respondemos con éxito y el objeto editado
     res.status(200).json({
-      mensaje: "El servicio fue editado con éxito",
-      servicioActualizado
+      mensaje: "El tarea fue editado con éxito",
+      tareaActualizado
     });
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrió un error al intentar editar el servicio" });
+    res.status(500).json({ mensaje: "Ocurrió un error al intentar editar el tarea" });
   }
 };
-export const actualizarParcialServicio = async (req, res) => {
+export const actualizarParcialTarea = async (req, res) => {
   try {
     // Mongoose es inteligente: si en req.body solo viene el precio, solo actualiza el precio
-    const servicioActualizado = await Servicio.findByIdAndUpdate(
+    const tareaActualizado = await Tarea.findByIdAndUpdate(
       req.params.id, 
       req.body, 
       { new: true } // Para que devuelva el objeto ya cambiado
     );
 
-    if (!servicioActualizado) {
-      return res.status(404).json({ mensaje: "No se encontró el servicio" });
+    if (!tareaActualizado) {
+      return res.status(404).json({ mensaje: "No se encontró el tarea" });
     }
 
     res.status(200).json({
-      mensaje: "Servicio actualizado parcialmente con éxito",
-      servicioActualizado
+      mensaje: "Tarea actualizado parcialmente con éxito",
+      tareaActualizado
     });
   } catch (error) {
     console.error(error);
     res.status(500).json({ mensaje: "Ocurrió un error al aplicar el PATCH" });
   }
 };
-export const borrarServicio = async (req, res) => {
+export const borrarTarea = async (req, res) => {
   try {
     // Buscamos por el ID de la URL y lo eliminamos en el acto
-    const servicioEliminado = await Servicio.findByIdAndDelete(req.params.id);
+    const tareaEliminado = await Tarea.findByIdAndDelete(req.params.id);
 
     // Si el ID no existía en la base de datos, avisamos
-    if (!servicioEliminado) {
-      return res.status(404).json({ mensaje: "No se encontró el servicio que querés borrar" });
+    if (!tareaEliminado) {
+      return res.status(404).json({ mensaje: "No se encontró el tarea que querés borrar" });
     }
 
     // Si todo salió bien, respondemos con éxito
     res.status(200).json({
-      mensaje: "El servicio fue eliminado con éxito",
-      servicioEliminado // Opcional: devolvemos el objeto que se borró
+      mensaje: "El tarea fue eliminado con éxito",
+      tareaEliminado // Opcional: devolvemos el objeto que se borró
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrió un error al intentar borrar el servicio" });
+    res.status(500).json({ mensaje: "Ocurrió un error al intentar borrar el tarea" });
   }
 };

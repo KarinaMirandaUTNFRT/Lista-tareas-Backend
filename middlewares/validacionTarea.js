@@ -1,14 +1,14 @@
 import { body, param } from "express-validator";
 import resultadovalidacion from "./resultadoValidacion.js";
 
-export const validacionServicio = [
-  body("nombreServicio")
+export const validaciontarea = [
+  body("nombretarea")
     .notEmpty()
-    .withMessage("el nombre del servicio es un dato obligatorio")
+    .withMessage("el nombre del tarea es un dato obligatorio")
     .isString()
-    .withMessage("El nombre del servicio debe ser un string")
+    .withMessage("El nombre del tarea debe ser un string")
     .isLength({ min: 5, max: 100 })
-    .withMessage("el numero del servicio debe tener entre 5 y 100 caracteres")
+    .withMessage("el numero del tarea debe tener entre 5 y 100 caracteres")
     ,
   body('precio')
     .notEmpty()
@@ -22,7 +22,7 @@ export const validacionServicio = [
     .notEmpty()
     .withMessage("La categoria es un dato obligatorio")
     .isString()
-    .withMessage("El nombre del servicio debe ser un string")
+    .withMessage("El nombre del tarea debe ser un string")
 .isIn(['Desarrollo Web','backend & API', 'Consultoria'])
 .withMessage("la categoria debe sewr alguno de los siguientes valores:'Desarrollo Web','backend & API', 'Consultoria' ")
     ,
@@ -40,12 +40,12 @@ export const validacionServicio = [
     .isString()
     .withMessage("La descripcion  de la imagen debe ser un string")
      .isLength({ min: 10, max: 500 })
-    .withMessage("el numero del servicio debe tener entre 10 y 500 caracteres")
+    .withMessage("el numero del tarea debe tener entre 10 y 500 caracteres")
     ,
   resultadovalidacion,
 ];
 
-export const validacionIDServicio=[
+export const validacionIDtarea=[
 param('id').isMongoId().withMessage('Este formato de ID no corresponde a un formato de Mongo')
 ,
 resultadovalidacion

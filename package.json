@@ -4,7 +4,8 @@
   "description": "backend de tareas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index",
+    "dev": "node --watch index"
   },
   "keywords": [],
   "author": "Karina Miranda",
@@ -18,6 +19,7 @@
   },
   "type": "module",
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1"
   }
 }

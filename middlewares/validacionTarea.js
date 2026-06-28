@@ -2,46 +2,39 @@ import { body, param } from "express-validator";
 import resultadovalidacion from "./resultadoValidacion.js";
 
 export const validaciontarea = [
-  body("nombretarea")
+  body("descripciontarea")
     .notEmpty()
-    .withMessage("el nombre del tarea es un dato obligatorio")
+    .withMessage("el nombre de la tarea es un dato obligatorio")
     .isString()
-    .withMessage("El nombre del tarea debe ser un string")
+    .withMessage("El nombre de la tarea debe ser un string")
     .isLength({ min: 5, max: 100 })
-    .withMessage("el numero del tarea debe tener entre 5 y 100 caracteres")
+    .withMessage("La descripcion de la tarea debe tener entre 5 y 100 caracteres")
     ,
-  body('precio')
+  body('fechaInicio')
     .notEmpty()
-    .withMessage("el precio es sun dato obligatorio")
-    .isNumeric()
-    .withMessage("el precio debe ser un valor numerico")
-    .isFloat({ min: 50 })
-    .withMessage("el precio minimo es de $50 pesos")
-    ,
-  body('categoria')
+    .withMessage("La fecha es un dato obligatorio")
+    .isString()
+    .withMessage("La tarea debe estar ingresada de esta formato texto")
+    .isDate({ format: 'YYYY-MM-DD', strictMode: true })
+    .withMessage("La fecha debe tener el formato exacto: año-mes-día (ej: 2026-06-28)")
+  ,
+
+  body('prioridad')
     .notEmpty()
-    .withMessage("La categoria es un dato obligatorio")
+    .withMessage("La prioridad es un dato obligatorio")
     .isString()
-    .withMessage("El nombre del tarea debe ser un string")
-.isIn(['Desarrollo Web','backend & API', 'Consultoria'])
-.withMessage("la categoria debe sewr alguno de los siguientes valores:'Desarrollo Web','backend & API', 'Consultoria' ")
+    .withMessage("Debe ingresar una prioridad con un string")
+.isIn(['baja','media', 'alta'])
+.withMessage("la prioridad debe ser alguno de los siguientes valores:'baja','media', 'alta' ")
     ,
-     body('imagen')
-     .notEmpty()
-    .withMessage("La imagen es un dato obligatorio")
+    body('estado')
+    .notEmpty()
+    .withMessage("El estado es un dato obligatorio")
     .isString()
-    .withMessage("El nombre del la imagen debe ser un string")
-    .matches(/^https:\/\/.+\.(jpg|jpeg|png|webp|avif|svg)$/)
-     .withMessage("la imagen debe ser una URL valida con extension:jpg|jpeg|png|webp|avif|svg ")
-     ,
-      body('descripcion')
-     .notEmpty()
-    .withMessage("La descripcion es un dato obligatorio")
-    .isString()
-    .withMessage("La descripcion  de la imagen debe ser un string")
-     .isLength({ min: 10, max: 500 })
-    .withMessage("el numero del tarea debe tener entre 10 y 500 caracteres")
-    ,
+    .withMessage("Debe ingresar un estado comno  un string")
+.isIn(['terminado','a terminar'])
+.withMessage("la prioridad debe ser alguno de los siguientes valores:'terminado','a terminar'")
+      
   resultadovalidacion,
 ];
 

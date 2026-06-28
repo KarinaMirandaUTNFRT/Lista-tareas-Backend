@@ -34,7 +34,7 @@ export const validaciontarea = [
     .withMessage("Debe ingresar un estado comno  un string")
 .isIn(['terminado','a terminar'])
 .withMessage("la prioridad debe ser alguno de los siguientes valores:'terminado','a terminar'")
-      
+,  
   resultadovalidacion,
 ];
 

@@ -1,100 +1,100 @@
-import Usuario from "../models/Usuario.js";
+import Tarea from "../models/Tarea.js";
 
-export const listarUsuarios = async (req, res) => {
+export const listarTareas = async (req, res) => {
   try {
-    const usuarios = await Usuario.find();
-    res.status(200).json(usuarios);
+    const tareas = await Tarea.find();
+    res.status(200).json(tareas);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrió un error al listar los usuarios" });
+    res.status(500).json({ mensaje: "Ocurrió un error al listar los tareas" });
   }
 };
-export const obtenerUsuarioId = async (req, res) => {
+export const obtenerTareaId = async (req, res) => {
   try {
-    const usuarioBuscado = await Usuario.findById(req.params.id);
-    if (!usuarioBuscado) {
-      return res.status(404).json({ mensaje: "No se encontró el usuario buscado" });
+    const tareaBuscado = await Tarea.findById(req.params.id);
+    if (!tareaBuscado) {
+      return res.status(404).json({ mensaje: "No se encontró el tarea buscado" });
     }
-    res.status(200).json(usuarioBuscado);
+    res.status(200).json(tareaBuscado);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrió un error al buscar el usuario por ID" });
+    res.status(500).json({ mensaje: "Ocurrió un error al buscar el tarea por ID" });
   }
 };
 
 
-export const crearUsuario = async (req, res) => {
+export const crearTarea = async (req, res) => {
   try {
     // Verificamos si el email ya existe antes de intentar guardarlo para evitar el error de Mongoose
-    const emailExistente = await Usuario.findOne({ email: req.body.email });
+    const emailExistente = await Tarea.findOne({ email: req.body.email });
     if (emailExistente) {
       return res.status(400).json({ mensaje: "Este correo electrónico ya está registrado" });
     }
 
-    const nuevoUsuario = new Usuario(req.body);
-    await nuevoUsuario.save();
+    const nuevoTarea = new Tarea(req.body);
+    await nuevoTarea.save();
     res.status(201).json({
-      mensaje: "El usuario fue creado con éxito",
-      nuevoUsuario
+      mensaje: "El tarea fue creado con éxito",
+      nuevoTarea
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrió un error al crear el usuario" });
+    res.status(500).json({ mensaje: "Ocurrió un error al crear el tarea" });
   }
 };
 
 
-export const editarUsuario = async (req, res) => {
+export const editarTarea = async (req, res) => {
   try {
-    const usuarioActualizado = await Usuario.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!usuarioActualizado) {
-      return res.status(404).json({ mensaje: "No se encontró el usuario para editar" });
+    const tareaActualizado = await Tarea.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!tareaActualizado) {
+      return res.status(404).json({ mensaje: "No se encontró el tarea para editar" });
     }
     res.status(200).json({
-      mensaje: "El usuario fue modificado con éxito",
-      usuarioActualizado
+      mensaje: "El tarea fue modificado con éxito",
+      tareaActualizado
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrió un error al intentar editar el usuario" });
+    res.status(500).json({ mensaje: "Ocurrió un error al intentar editar el tarea" });
   }
 };
 
 
-export const borrarUsuario = async (req, res) => {
+export const borrarTarea = async (req, res) => {
   try {
-    const usuarioEliminado = await Usuario.findByIdAndDelete(req.params.id);
-    if (!usuarioEliminado) {
-      return res.status(404).json({ mensaje: "No se encontró el usuario que querés borrar" });
+    const tareaEliminado = await Tarea.findByIdAndDelete(req.params.id);
+    if (!tareaEliminado) {
+      return res.status(404).json({ mensaje: "No se encontró el tarea que querés borrar" });
     }
     res.status(200).json({
-      mensaje: "El usuario fue eliminado con éxito",
-      usuarioEliminado
+      mensaje: "El tarea fue eliminado con éxito",
+      tareaEliminado
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrió un error al intentar borrar el usuario" });
+    res.status(500).json({ mensaje: "Ocurrió un error al intentar borrar el tarea" });
   }
 };
-export const editarParcialUsuario = async (req, res) => {
+export const editarParcialTarea = async (req, res) => {
   try {
     
-    const usuarioActualizado = await Usuario.findByIdAndUpdate(
+    const tareaActualizado = await Tarea.findByIdAndUpdate(
       req.params.id,
       { $set: req.body }, // El operador $set de Mongoose asegura que solo se cambie lo enviado
       { new: true, runValidators: true } // runValidators hace que respete el enum y reglas del Schema
     );
 
-    if (!usuarioActualizado) {
-      return res.status(404).json({ mensaje: "No se encontró el usuario que querés editar" });
+    if (!tareaActualizado) {
+      return res.status(404).json({ mensaje: "No se encontró el tarea que querés editar" });
     }
 
     res.status(200).json({
-      mensaje: "Usuario actualizado correctamente",
-      usuarioActualizado
+      mensaje: "Tarea actualizado correctamente",
+      tareaActualizado
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: "Ocurrió un error al intentar actualizar el usuario" });
+    res.status(500).json({ mensaje: "Ocurrió un error al intentar actualizar el tarea" });
   }
 };

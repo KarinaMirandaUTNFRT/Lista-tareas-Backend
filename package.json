@@ -8,19 +8,14 @@
     "dev": "node --env-file .env --watch index"
   },
   "keywords": [
-     "middlewares",
+    "middlewares",
     "documentos",
     "modelos",
     "endpoint"
   ],
   "author": "Karina Miranda",
   "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.5.2",
-     }
-  },
+  "packageManager": "pnpm@11.5.2",
   "type": "module",
   "dependencies": {
     "cors": "^2.8.6",

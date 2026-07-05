@@ -62,7 +62,7 @@ export const editarTarea = async (req, res) => {
     res.status(500).json({ mensaje: "Ocurrió un error al intentar editar el tarea" });
   }
 };
-export const actualizarParcialTarea = async (req, res) => {
+export const editarParcialTarea = async (req, res) => {
   try {
     // Mongoose es inteligente: si en req.body solo viene el precio, solo actualiza el precio
     const tareaActualizado = await Tarea.findByIdAndUpdate(

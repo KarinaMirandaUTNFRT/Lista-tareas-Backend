@@ -1,8 +1,8 @@
 import { body, param } from "express-validator";
 import resultadovalidacion from "./resultadoValidacion.js";
 
-export const validaciontarea = [
-  body("descripciontarea")
+export const validacionTarea = [
+  body("descripcionTarea")
     .notEmpty()
     .withMessage("el nombre de la tarea es un dato obligatorio")
     .isString()
@@ -38,7 +38,7 @@ export const validaciontarea = [
   resultadovalidacion,
 ];
 
-export const validacionIDtarea=[
+export const validacionIDTarea=[
 param('id').isMongoId().withMessage('Este formato de ID no corresponde a un formato de Mongo')
 ,
 resultadovalidacion

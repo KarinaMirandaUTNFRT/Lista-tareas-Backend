@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public'))
 
 
 app.get("/api/tarea", (req, res)=> {
-console.log('Me llego solicitud nuevaaaa');
+//console.log('Me llego solicitud nuevaaaa');
 res.json ( 
     { 
     mensaje:"conexion creada",

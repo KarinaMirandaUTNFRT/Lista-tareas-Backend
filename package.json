@@ -4,24 +4,28 @@
   "description": "Backend del proyecto lista de tareas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
-    "dev": "node --watch index"
+    "dev": "node --env-file .env --watch index"
   },
-  "keywords": [],
+  "keywords": [
+     "middlewares",
+    "documentos",
+    "modelos",
+    "endpoint"
+  ],
   "author": "Karina Miranda",
   "license": "ISC",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
       "version": "^11.5.2",
-      "onFail": "download"
-    }
+     }
   },
   "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "mongoose": "^9.7.3",
     "morgan": "^1.11.0"
   }
 }

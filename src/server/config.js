@@ -8,7 +8,7 @@ import  "../database/db.js";
 export default class Server {
     constructor() {
         this.app = express();
-        this.PORT = process.env.PORT || 3000;
+        this.PORT = process.env.PORT || 3001;
         
         // Ejecutamos la conexión AQUÍ, cuando el entorno ya cargó
         //conectarDb(); 

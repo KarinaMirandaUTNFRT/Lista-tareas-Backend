@@ -6,7 +6,6 @@ const tareaSchema = new Schema(
     nombreTarea: {
       type: String,
       required: [true, "El nombre de la tarea es obligatorio."],
-      unique: true,
       minlength: 5,
       maxlength: 100,
       trim: true,

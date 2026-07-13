@@ -20,8 +20,15 @@ export const validacionTarea = [
     .withMessage(
       "La fecha debe tener el formato exacto: año-mes-día (ej: 2026-06-28)",
     ),
-
-  body("prioridad")
+ 
+      body("categoria")
+    .isString()
+    .withMessage("La categoria debe ser un string")
+    .isIn(["Ventas", "Proveedores", "Marketing", "Sistemas", "Atencion al Cliente"])
+    .withMessage(
+      "La categoria debe ser algunos de los siguientes valores: 'Ventas', 'Proveedores', 'Marketing, 'Sistemas', 'Atencion al Cliente',"
+    ),
+    body("prioridad")
     .notEmpty()
     .withMessage("La prioridad es un dato obligatorio")
     .isString()
@@ -29,15 +36,6 @@ export const validacionTarea = [
     .isIn(["baja", "media", "alta"])
     .withMessage(
       "la prioridad debe ser alguno de los siguientes valores:'baja','media', 'alta' ",
-    ),
-  body("estado")
-    .notEmpty()
-    .withMessage("El estado es un dato obligatorio")
-    .isString()
-    .withMessage("Debe ingresar un estado comno  un string")
-    .isIn(["terminado", "a terminar"])
-    .withMessage(
-      "la prioridad debe ser alguno de los siguientes valores:'terminado','a terminar'",
     ),
   body("descripcion")
     .isString()

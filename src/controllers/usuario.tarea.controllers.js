@@ -31,11 +31,11 @@ export const crearTarea = async (req, res) => {
       return res.status(400).json({ mensaje: "Este correo electrónico ya está registrado" });
     }
 
-    const nuevoTarea = new Tarea(req.body);
-    await nuevoTarea.save();
+    const nuevaTarea = new Tarea(req.body);
+    await nuevaTarea.save();
     res.status(201).json({
       mensaje: "El tarea fue creado con éxito",
-      nuevoTarea
+      nuevaTarea
     });
   } catch (error) {
     console.error(error);

@@ -30,11 +30,11 @@ export const listarTareas = async (req, res) => {
 };
 export const crearTarea = async (req, res) => {
   try {
-    const nuevoTarea = new Tarea(req.body);
-    await nuevoTarea.save();
+    const nuevaTarea = new Tarea(req.body);
+    await nuevaTarea.save();
     res
       .status(201)
-      .json({ mensaje: "El tarea fue creado con éxito", nuevoTarea });
+      .json({ mensaje: "El tarea fue creada con éxito", nuevaTarea });
   } catch (error) {
     console.error(error);
     res.status(500).json({ mensaje: "Ocurrió un error al crear el tarea" });

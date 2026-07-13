@@ -2,7 +2,7 @@ import { body, param } from "express-validator";
 import resultadovalidacion from "./resultadoValidacion.js";
 
 export const validacionTarea = [
-  body("descripcionTarea")
+  body("nombreTarea")
     .notEmpty()
     .withMessage("el nombre de la tarea es un dato obligatorio")
     .isString()

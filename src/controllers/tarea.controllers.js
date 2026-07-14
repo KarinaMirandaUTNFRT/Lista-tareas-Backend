@@ -5,13 +5,13 @@ export const prueba = (req, res) => {
 export const obtenerTareaId = async (req, res) => {
   try {
     console.log(req.params.id);
-    const tareaBuscado = await Tarea.findById(req.params.id);
-        if (!tareaBuscado) {
+    const tareaBuscada = await Tarea.findById(req.params.id);
+        if (!tareaBuscada) {
       return res
         .status(404)
         .json({ mensaje: "no se encontro el tarea por id" });
     }
-    res.status(200).json(tareaBuscado);
+    res.status(200).json(tareaBuscada);
   } catch (error) {
     console.error(error);
     res.status(500).json({ mensaje: "ocurrio un error al buscar un tarea por id" });

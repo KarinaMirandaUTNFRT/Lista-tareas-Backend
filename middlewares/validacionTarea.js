@@ -52,4 +52,3 @@ export const validacionIDTarea = [
     .withMessage("Este formato de ID no corresponde a un formato de "),
   resultadovalidacion,
 ];
-Mongo

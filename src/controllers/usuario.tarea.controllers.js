@@ -11,11 +11,11 @@ export const listarTareas = async (req, res) => {
 };
 export const obtenerTareaId = async (req, res) => {
   try {
-    const tareaBuscado = await Tarea.findById(req.params.id);
-    if (!tareaBuscado) {
+    const tareaBuscada = await Tarea.findById(req.params.id);
+    if (!tareaBuscada) {
       return res.status(404).json({ mensaje: "No se encontró el tarea buscado" });
     }
-    res.status(200).json(tareaBuscado);
+    res.status(200).json(tareaBuscada);
   } catch (error) {
     console.error(error);
     res.status(500).json({ mensaje: "Ocurrió un error al buscar el tarea por ID" });

@@ -2,22 +2,22 @@ import Tarea from "../models/Tareas.js";
 export const prueba = (req, res) => {
   res.json("hasta luego ultima prueba");
 };
-export const obtenerTareaId = async (req, res) => {
+export const obtenerTareaId = async (req, res) => {//vuelve con la respuesta
   try {
     console.log(req.params.id);
-    const tareaBuscado = await Tarea.findById(req.params.id);
-        if (!tareaBuscado) {
+    const tareaBuscada = await Tarea.findById(req.params.id);
+        if (!tareaBuscada) {
       return res
         .status(404)
         .json({ mensaje: "no se encontro el tarea por id" });
     }
-    res.status(200).json(tareaBuscado);
+    res.status(200).json(tareaBuscada);
   } catch (error) {
     console.error(error);
     res.status(500).json({ mensaje: "ocurrio un error al buscar un tarea por id" });
   }
 };
-export const listarTareas = async (req, res) => {
+export const listarTareas = async (req, res) => {//vuelve con la respuesta
   try {
     const tareas = await Tarea.find();
     res.status(200).json(tareas);
@@ -28,10 +28,10 @@ export const listarTareas = async (req, res) => {
       .json({ mensaje: "ocurrio un error al listar los tareas" });
   }
 };
-export const crearTarea = async (req, res) => {
+export const crearTarea = async (req, res) => {//vuelve con la respuesta
   try {
     const nuevaTarea = new Tarea(req.body);
-    await nuevaTarea.save();
+    await nuevaTarea.save(); //guarda en la DB
     res
       .status(201)
       .json({ mensaje: "El tarea fue creada con éxito", nuevaTarea });
@@ -40,7 +40,7 @@ export const crearTarea = async (req, res) => {
     res.status(500).json({ mensaje: "Ocurrió un error al crear el tarea" });
   }
 };
-export const editarTarea = async (req, res) => {
+export const editarTarea = async (req, res) => { //vuelve con la respuesta
   try {
     // 1. Buscamos por el ID que viene en la URL y le pasamos los datos nuevos del req.body
     // { new: true } sirve para que MongoDB nos devuelva el documento YA modificado

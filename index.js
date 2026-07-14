@@ -1,9 +1,31 @@
-import router from "./src/routes/index.routes.js";
-import Server from "./src/server/config.js";
+import express from 'express'
+import cors from 'cors'
+import {dirname} from'path';
+import { fileURLToPath } from 'url';
+import "./src/database/db.js"
+import tareasRouter from './src/routes/tareas.routes.js';
 
-//instanciar la clase server
-const server = new Server()
-//acceder a las rutas http://localhost:3000/api/servicios/test
-server.app.use('/api',router)
+const app = express()
+const PORT = 3001
 
-server.listen()
+app.use(cors())
+app.use(express.json())
+
+const __dirname = dirname (fileURLToPath(import.meta.url))
+console.log(__dirname + '/public')
+app.use(express.static(__dirname + '/public'))
+
+app.use("/api/tarea", tareasRouter);
+//app.get("/api/tarea", (req, res)=> {
+//console.log('Me llego solicitud nuevaaaa');
+//res.json ( 
+    //{ 
+    //mensaje:"conexion creada",
+    //saludo:"Bienvenido a nuestro backend",
+//})
+//});
+
+app.listen(PORT, () => {
+    console.info(`servidor activo en el puerto ${PORT}`);
+});
+ 

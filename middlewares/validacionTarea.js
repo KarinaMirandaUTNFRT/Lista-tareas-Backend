@@ -49,6 +49,7 @@ export const validacionTarea = [
 export const validacionIDTarea = [
   param("id")
     .isMongoId()
-    .withMessage("Este formato de ID no corresponde a un formato de Mongo"),
+    .withMessage("Este formato de ID no corresponde a un formato de "),
   resultadovalidacion,
 ];
+Mongo

@@ -1,4 +1,4 @@
----
+
 lockfileVersion: '9.0'
 
 importers:
@@ -196,7 +196,6 @@ snapshots:
 
   pnpm@11.9.0: {}
 
----
 lockfileVersion: '9.0'
 
 settings:
@@ -216,12 +215,9 @@ importers:
       express:
         specifier: ^5.2.1
         version: 5.2.1
-<<<<<<< HEAD
-=======
       express-validator:
         specifier: ^7.3.2
         version: 7.3.2
->>>>>>> dev
       mongoose:
         specifier: ^9.7.3
         version: 9.7.3
@@ -415,12 +411,9 @@ packages:
     resolution: {integrity: sha512-kpSuLD3/7RenBnjnJdOHXCKC8dTd1JzeOiJhN0necWWci6cC+qX+VuwPnMVgb+a4+KNJSfgqahpnfWaeDXCimw==}
     engines: {node: '>=18.0.0'}
 
-<<<<<<< HEAD
-=======
   lodash@4.18.1:
     resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
->>>>>>> dev
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
@@ -830,11 +823,8 @@ snapshots:
 
   kareem@3.3.0: {}
 
-<<<<<<< HEAD
-=======
   lodash@4.18.1: {}
 
->>>>>>> dev
   math-intrinsics@1.1.0: {}
 
   media-typer@1.1.0: {}

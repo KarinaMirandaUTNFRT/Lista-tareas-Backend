@@ -1,27 +1,31 @@
 {
   "name": "Lista-tareas-Backend",
+  "private": true,
   "version": "1.0.0",
   "description": "Backend del proyecto lista de tareas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
     "dev": "node --env-file .env --watch index"
   },
-  "keywords": [],
+  "keywords":[
+    "middlewares",
+    "documentos",
+    "modelos",
+    "endpoint"
+  ],
   "author": "Karina Miranda",
   "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.5.2",
-      "onFail": "download"
-    }
-  },
+  "packageManager": "pnpm@11.5.2",
   "type": "module",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
     "express": "^5.2.1",
+<<<<<<< HEAD
+=======
+    "express-validator": "^7.3.2",
+>>>>>>> dev
     "mongoose": "^9.7.3",
     "morgan": "^1.11.0"
   }

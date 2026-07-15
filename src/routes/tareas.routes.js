@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router } from "express"; //
 import {
   listarTareas,
   obtenerTareaId,
@@ -12,7 +12,7 @@ import {
   validacionTarea,
 } from "../../middlewares/validacionTarea.js";
 
-const tareasRouter = Router();
+const tareasRouter = Router(); //
 
 tareasRouter
   .route("/")

@@ -10,7 +10,7 @@ import {
 import {
   validacionIDTarea,
   validacionTarea,
-} from "../../middlewares/validacionTarea.js";
+} from "../middlewares/validacionTarea.js";
 
 const tareasRouter = Router(); //
 

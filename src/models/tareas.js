@@ -43,5 +43,6 @@ const tareaSchema = new Schema(
     timestamp: true, //tengo la fecha y hora de creacion y actualizacion
   },
 );
+
 const Tarea = mongoose.model("tarea", tareaSchema);
 export default Tarea;

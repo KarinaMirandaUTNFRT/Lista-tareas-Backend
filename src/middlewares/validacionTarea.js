@@ -43,7 +43,7 @@ export const validacionTarea = [
     .isLength({ min: 10, max: 500 })
     .withMessage("La descripción debe contener entre 10 y 500 caracteres"),
 
-  resultadovalidacion,
+  resultadoValidacion,
 ];
 
 export const validacionIDTarea = [

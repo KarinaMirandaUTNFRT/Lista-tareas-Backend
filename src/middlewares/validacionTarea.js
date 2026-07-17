@@ -1,5 +1,5 @@
 import { body, param } from "express-validator";
-import resultadovalidacion from "./resultadoValidacion.js";
+import resultadoValidacion from "./resultadoValidacion.js";
 
 export const validacionTarea = [
   body("nombreTarea")
@@ -50,5 +50,5 @@ export const validacionIDTarea = [
   param("id")
     .isMongoId()
     .withMessage("Este formato de ID no corresponde a un formato de "),
-  resultadovalidacion,
+  resultadoValidacion,
 ];

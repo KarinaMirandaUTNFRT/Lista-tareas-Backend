@@ -1,4 +1,4 @@
-import Tarea from "../models/tareas.js";
+import Tarea from "../models/validacionTarea.js";
 export const prueba = (req, res) => {
   res.json("hasta luego ultima prueba");
 };
